@@ -18,7 +18,7 @@
 //         setMessages((prev) => [...prev, userMessage]);
 
 //         try {
-//             const response = await axios.post("http://localhost:5000/api/chat", {
+//             const response = await axios.post(" https://project-gyan-backend.vercel.app/api/chat", {
 //                 message: input,
 //                 god: god?.name || "Unknown",
 //             });
@@ -101,7 +101,7 @@ const ChatModal = ({ god, onClose }) => {
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/chat", {
+      const response = await axios.post(" https://project-gyan-backend.vercel.app/api/chat", {
         message: input,
         god: god?.name || "Unknown",
       });

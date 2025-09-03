@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/analyze"; // Backend URL
+const API_URL = "https://project-gyan-backend.vercel.app/api/analyze"; // Backend URL 
 
 export const getMeaning = async (verse) => {
     try {
         const response = await axios.post(
             API_URL, 
             { verse }, 
-            { headers: { "Content-Type": "application/json" } } // Ensure JSON request
+            { headers: { "Content-Type": "application/json" } }
         );
 
         return response.data; // Assuming response contains { meaning: "..." }

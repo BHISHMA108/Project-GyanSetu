@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import axios from "axios";
 import { FaMicrophone, FaSpinner } from "react-icons/fa";
@@ -50,7 +49,7 @@ const Podcast = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/generate-podcast",
+        " https://project-gyan-backend.vercel.app/api/generate-podcast",
         { topic }
       );
       setScript(response.data.script);
@@ -139,4 +138,3 @@ const Podcast = () => {
 };
 
 export default Podcast;
-

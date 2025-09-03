@@ -11,23 +11,27 @@ const path = require("path");
 dotenv.config();
 const app = express();
 
-app.use(cors());
-app.use(express.json()); // Required to parse JSON body
+// Middleware
+app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(
+  cors({
+    origin: "https://project-gyan-setu-three.vercel.app", // ✅ No trailing slash
+    credentials: true,
+  })
+);
 
-// Use defined routes
-app.use("/api", chalisaRoutes);
-// Serve static files from the React app
-app.use("/podcasts", express.static(path.join(__dirname, "podcasts")));
 // Routes
+app.use("/api", chalisaRoutes);
 app.use("/api", podcastRoutes);
 app.use("/api", songRoutes);
 app.use("/api", storyRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+// Serve static files (if any)
+app.use("/podcasts", express.static(path.join(__dirname, "podcasts")));
 
-
+// ❌ Don't use app.listen() on Vercel
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 module.exports = app;

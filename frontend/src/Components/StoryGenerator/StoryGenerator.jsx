@@ -32,7 +32,7 @@
 //     if ('speechSynthesis' in window) {
 //       const synth = window.speechSynthesis;
 //       const utterance = new SpeechSynthesisUtterance(text);
-  
+
 //       utterance.onstart = () => setIsPlaying(true);
 //       utterance.onend = () => {
 //         setIsPlaying(false);
@@ -42,11 +42,11 @@
 //         }
 //       };
 //       utterance.onerror = () => setIsPlaying(false);
-  
+
 //       if (selectedVoice) {
 //         utterance.voice = selectedVoice;
 //       }
-  
+
 //       synth.speak(utterance);
 //       setSpeechSynthesisUtterance(utterance);
 //     } else {
@@ -63,14 +63,14 @@
 //   useEffect(() => {
 //     if ('speechSynthesis' in window) {
 //       const synth = window.speechSynthesis;
-  
+
 //       const populateVoices = () => {
 //         setVoices(synth.getVoices());
 //       };
-  
+
 //       populateVoices(); // Initial population
 //       synth.onvoiceschanged = populateVoices; // Update voices when they change
-  
+
 //       return () => {
 //         synth.onvoiceschanged = null; // Clean up listener
 //       };
@@ -97,9 +97,9 @@
 //   const handleCustomPromptChange = (e) => {
 //     const value = e.target.value;
 //     setCustomPrompt(value);
-    
+
 //     setCustomInputLabel(value.length > 0 ? "My idea about the story is..." : "Or Write Your Own Story Idea");
-    
+
 //     if (value.length > 0 && !selectedReligion) {
 //       setShowReligionSelector(false);
 //       setSelectedPrompt('');
@@ -118,7 +118,7 @@
 //     try {
 //       setIsLoading(true);
 //       setError(null);
-      
+
 //       const prompt = selectedPrompt || customPrompt;
 //       if (!prompt) {
 //         throw new Error('Please select or enter a story prompt');
@@ -145,10 +145,10 @@
 //       console.log('Received response:', response);
 
 //       if (response.success && response.story) {
-//         const storyParagraphs = Array.isArray(response.story) 
-//           ? response.story 
+//         const storyParagraphs = Array.isArray(response.story)
+//           ? response.story
 //           : response.story.split('\n\n').filter(p => p.trim());
-        
+
 //         setParagraphs(storyParagraphs);
 //         setCurrentParagraph(0);
 //         setIsStoryMode(true);
@@ -188,8 +188,8 @@
 //   const renderLanguageSelector = () => {
 //     if (!selectedPrompt && !customPrompt) return null;
 
-//     const availableLanguages = selectedReligion 
-//       ? languageOptions[selectedReligion.toLowerCase()] 
+//     const availableLanguages = selectedReligion
+//       ? languageOptions[selectedReligion.toLowerCase()]
 //       : ['english', 'hindi', 'marathi']; // Default languages for custom prompt
 
 //     return (
@@ -211,14 +211,13 @@
 //       </div>
 //     );
 //   };
-     
 
 //   const renderStoryMode = () => (
 //     <div className="story-mode">
 //       <div className="story-content story-text">
 //         {paragraphs[currentParagraph]}
 //       </div>
-  
+
 //       <div className="story-controls">
 //         <button
 //           className="nav-button"
@@ -227,7 +226,7 @@
 //         >
 //           <FaArrowLeft /> Previous
 //         </button>
-  
+
 //         <div className="tts-controls">
 //           <button
 //             className={`tts-toggle ${isTTSEnabled ? 'active' : ''}`}
@@ -238,7 +237,7 @@
 //           >
 //             {isTTSEnabled ? <FaVolumeUp size={20} /> : <FaVolumeOff size={20} />}
 //           </button>
-  
+
 //           {isTTSEnabled && (
 //             <>
 //               <select
@@ -256,7 +255,7 @@
 //                   </option>
 //                 ))}
 //               </select>
-  
+
 //               <button
 //                 className={`play-pause ${isPlaying ? 'playing' : ''}`}
 //                 onClick={() => {
@@ -272,7 +271,7 @@
 //             </>
 //           )}
 //         </div>
-  
+
 //         <div className="progress-bar">
 //           <div
 //             className="progress"
@@ -281,7 +280,7 @@
 //             }}
 //           />
 //         </div>
-  
+
 //         <button
 //           className="nav-button"
 //           onClick={goToNextParagraph}
@@ -290,7 +289,7 @@
 //           Next <FaArrowRight />
 //         </button>
 //       </div>
-  
+
 //       <button className="back-button" onClick={goBack}>
 //         <FaArrowLeft /> Back to Selection
 //       </button>
@@ -314,7 +313,7 @@
 //         <div className="content-wrapper">
 //           <h1  id='heading' className="main-title">Story Generator</h1>
 //           <p className="subtitle">Listen to religious stories or create your own</p>
-          
+
 //           <div className="selection-area">
 //             <div className={`selector-group ${!showReligionSelector ? 'fade-out' : ''}`}>
 //               <label className={`section-title ${activeField === 'religion' ? 'glowing-text' : ''}`}>
@@ -413,7 +412,6 @@
 
 // export default StoryGenerator;
 
-
 // // import React, { useState } from "react";
 
 // // const StoryGenerator = () => {
@@ -430,7 +428,7 @@
 // //     setError("");
 
 // //     try {
-// //       const response = await fetch("http://localhost:5000/api/generate-story", {
+// //       const response = await fetch(" https://project-gyan-backend.vercel.app/api/generate-story", {
 // //         method: "POST",
 // //         headers: {
 // //           "Content-Type": "application/json",
@@ -505,8 +503,6 @@
 
 // // export default StoryGenerator;
 
-
-
 // // import React, { useState } from 'react';
 
 // // const StoryGenerator = () => {
@@ -528,7 +524,7 @@
 // //     setLoading(true);
 
 // //     try {
-// //       const response = await fetch('http://localhost:5000/api/generate-story', {
+// //       const response = await fetch(' https://project-gyan-backend.vercel.app/api/generate-story', {
 // //         method: 'POST',
 // //         headers: {
 // //           'Content-Type': 'application/json',
@@ -617,7 +613,6 @@
 
 // // export default StoryGenerator;
 
-
 import React, { useState, useEffect } from "react";
 import { storyPrompts, languageOptions } from "../../data/storyPrompts.js";
 import "./StoryGenerator.css";
@@ -652,7 +647,8 @@ const StoryGenerator = () => {
   // TTS states
   const [isTTSEnabled, setIsTTSEnabled] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [speechSynthesisUtterance, setSpeechSynthesisUtterance] = useState(null);
+  const [speechSynthesisUtterance, setSpeechSynthesisUtterance] =
+    useState(null);
   const [selectedVoice, setSelectedVoice] = useState(null);
   const [voices, setVoices] = useState([]);
 
@@ -710,8 +706,12 @@ const StoryGenerator = () => {
 
   useEffect(() => {
     if (selectedReligion) {
-      const availableLanguages = languageOptions[selectedReligion.toLowerCase()];
-      if (availableLanguages && !availableLanguages.includes(selectedLanguage)) {
+      const availableLanguages =
+        languageOptions[selectedReligion.toLowerCase()];
+      if (
+        availableLanguages &&
+        !availableLanguages.includes(selectedLanguage)
+      ) {
         setSelectedLanguage("english");
       }
     }
@@ -935,7 +935,9 @@ const StoryGenerator = () => {
         {!isStoryMode ? (
           <div className="content-wrapper">
             <h1 id="heading">Story Generator</h1>
-            <p className="subtitle">Listen to religious stories or create your own</p>
+            <p className="subtitle">
+              Listen to religious stories or create your own
+            </p>
 
             <div className="selection-area">
               {/* Religion Selector */}

@@ -11,7 +11,7 @@ const fetchSongs = () => {
         .map((file, index) => ({
             id: index + 1,
             name: file,
-            url: `http://localhost:5000/api/play/${file}`
+            url: `https://project-gyan-backend.vercel.app//api/play/${file}`
         }));
 };
 
