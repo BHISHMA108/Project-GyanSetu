@@ -49,7 +49,7 @@ export default function OpeningPage(props) {
             </div>
 
             <div className="video">
-                <video loop muted autoPlay className="hidden sm:block lg:block z-0" src="https://res.cloudinary.com/dst3yuj1w/video/upload/v1756030594/Video_pasate.mp4"></video>
+                <video loop muted autoPlay className="hidden sm:block lg:block z-0" src="https://res.cloudinary.com/dst3yuj1w/video/upload/v1757856802/landingvideo_lfl4zo.mp4"></video>
             </div>
             <CalendarDrawer open={openCalendar} onClose={toggleCalendar} />
             

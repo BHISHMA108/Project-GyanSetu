@@ -63,7 +63,7 @@
     background-image: url("./Assets/Satvik-diet.avif");
 }
 #card1:hover {
-    background-image: url("./Assets/healthy.gif");
+    background-image: url("https://res.cloudinary.com/dst3yuj1w/image/upload/v1757857572/healthy_tkqql6.gif");
     background-size: cover;
 }
 
@@ -71,7 +71,7 @@
     background-image: url("./Assets/conquor.jpg");
 }
 #card2:hover {
-    background-image: url("./Assets/meditation.gif");
+    background-image: url("https://res.cloudinary.com/dst3yuj1w/image/upload/v1757856794/meditation_gif_sqk9be.gif");
     background-size: cover;
 }
 
@@ -79,7 +79,7 @@
     background-image: url("./Assets/why bad.jpeg");
 }
 #card3:hover {
-    background-image: url("./Assets/why bad.gif");
+    background-image: url("https://res.cloudinary.com/dst3yuj1w/image/upload/v1757856794/whybad_gif_kn4cpg.gif");
     background-size: cover;
 }
 
@@ -87,7 +87,7 @@
     background-image: url("./Assets/anger_new.avif");
 }
 #card4:hover {
-    background-image: url("./Assets/anger.gif");
+    background-image: url("https://res.cloudinary.com/dst3yuj1w/image/upload/v1757856796/anger_gif_qydsz6.gif");
     height: 24rem; /* Equivalent to h-96 */
     background-size: cover;
 }
@@ -96,7 +96,7 @@
     background-image: url("./Assets/lost.jpeg");
 }
 #card5:hover {
-    background-image: url("./Assets/lost.gif");
+    background-image: url("https://res.cloudinary.com/dst3yuj1w/image/upload/v1757856795/lost_gif_xe1sbq.gif");
     background-size: cover;
 }
 
@@ -104,7 +104,7 @@
     background-image: url("./Assets/unsatified.jpg");
 }
 #card6:hover {
-    background-image: url("./Assets/unsatified.gif");
+    background-image: url("https://res.cloudinary.com/dst3yuj1w/image/upload/v1757857439/unsatisfiied_gif_zbfpmb.gif");
     background-size: cover;
 }
 
