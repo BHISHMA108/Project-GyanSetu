@@ -156,45 +156,6 @@ const newsData = {
       "readMore": "https://religionnews.com/2025/03/19/for-those-with-eating-disorders-ramadan-fasting-presents-health-spiritual-challenges/"
     }
   ]
-  // ,
-  // jainism: [
-  //   {
-  //     title: "Palitana Temples Receive UNESCO World Heritage Status",
-  //     description: "The sacred Shatrunjaya hill temples recognized for their architectural and spiritual significance.",
-  //     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Palitana_temples.jpg/1200px-Palitana_temples.jpg",
-  //     readMore: "https://whc.unesco.org/"
-  //   },
-  //   {
-  //     title: "International Jain Conference on Environmental Conservation",
-  //     description: "Global gathering discusses Jain principles of non-violence and their application to ecological preservation.",
-  //     image: "https://www.jainworld.com/education/images/jain-conf.jpg",
-  //     readMore: "https://www.jainworld.com/"
-  //   },
-  //   {
-  //     title: "Digital Archive of Jain Manuscripts Launched",
-  //     description: "Major initiative to preserve and digitize ancient Jain texts and make them accessible online.",
-  //     image: "https://www.bl.uk/britishlibrary/~/media/bl/global/sacred-texts/images/jain%20manuscript.jpg",
-  //     readMore: "https://www.jainelibrary.org/"
-  //   },
-  //   {
-  //     title: "Paryushan 2024: Global Celebrations Announced",
-  //     description: "Communities worldwide prepare for the annual period of spiritual reflection and fasting.",
-  //     image: "https://static.toiimg.com/thumb/msid-85241841,width-1070,height-580,imgsize-1421641,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
-  //     readMore: "https://jainsite.com/"
-  //   },
-  //   {
-  //     title: "New Jain Center Opens in Silicon Valley",
-  //     description: "Modern facility combines traditional architecture with contemporary amenities for growing community.",
-  //     image: "https://www.jcnc.org/wp-content/uploads/2019/01/JCNC-Temple-1.jpg",
-  //     readMore: "https://www.jcnc.org/"
-  //   },
-  //   {
-  //     title: "Young Jains Launch Global Environmental Initiative",
-  //     description: "Youth-led movement applies Jain principles to address climate change and sustainability.",
-  //     image: "https://youngjains.org.uk/wp-content/uploads/2019/03/YJ-Logo-1.png",
-  //     readMore: "https://youngjains.org.uk/"
-  //   }
-  // ]
 };
 
 const NewsSlider = () => {
