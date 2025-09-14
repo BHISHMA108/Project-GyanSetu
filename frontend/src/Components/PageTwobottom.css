@@ -63,7 +63,7 @@
     background-image: url("./Assets/Satvik-diet.avif");
 }
 #card1:hover {
-    background-image: url("https://res.cloudinary.com/dst3yuj1w/image/upload/v1757857572/healthy_tkqql6.gif");
+    background-image: url("/assets/healthy.gif");
     background-size: cover;
 }
 
