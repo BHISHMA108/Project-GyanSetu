@@ -108,8 +108,8 @@ The vision of GyanSetu is to:
 
 ## 🔗 Links
 
-* **Live Demo:** [Vercel Hosted Link](#)
-* **GitHub Repo:** [Repository Link](#)
+* **Live Demo:** [Vercel Hosted Link](https://project-gyan-setu-three.vercel.app/)
+* **GitHub Repo:** [Repository Link](https://github.com/BHISHMA108/Project-GyanSetu/)
 
 ---
 
