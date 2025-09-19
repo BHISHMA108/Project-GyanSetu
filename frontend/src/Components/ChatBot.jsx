@@ -29,7 +29,7 @@ export default function ChatBot() {
     setMessages((prev) => [...prev, { role: "user", content: form.input }]);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/chatbot", form);
+      const res = await axios.post("https://project-gyan-backend.vercel.app/api/chatbot", form);
 
       if (res.status === 200) {
         let botReply = res.data.reply || "No reply from AI";
