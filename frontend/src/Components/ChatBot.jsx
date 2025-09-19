@@ -54,7 +54,6 @@ export default function ChatBot() {
                    text-white rounded-full h-[62px] w-[62px] z-[99] 
                    bg-orange-500 shadow-lg hover:scale-110 hover:bg-orange-600 transition-transform duration-300"
       >
-        <FontAwesomeIcon icon={faHeadset} size="lg" />
       </button>
 
       {/* Modal */}

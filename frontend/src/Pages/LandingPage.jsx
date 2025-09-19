@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PageTwo from "../Components/PageTwo.jsx";
 import OpeningPage from "../Components/OpeningPage.jsx";
 import PageTwobottom from "../Components/PageTwobottom.jsx";
-import PageTwofooter from "../Components/PageTwofooter.jsx";
 import Navbar from "../Components/FloatingNav.jsx";
 import { useNavigate } from "react-router-dom";
 import CalendarDrawer from "../Components/calender/CalendarDrawer.jsx";
