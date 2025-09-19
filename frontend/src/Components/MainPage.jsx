@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import SidebarDemo from "../Components/sidebar/Sidebar.jsx";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import Ecommerce from "./MainPageComponents/HeroParallaxDemo.jsx";
+import ChatBot from "./ChatBot.js"
 import MusicCardContainer from "./MainPageComponents/MusicCardContainer.jsx";
 import GradientText from "./Bhagwatgita/GradientText.jsx";
 import VideoSlider from "../Components/MainPageComponents/VideoSlider.jsx";
@@ -35,6 +33,7 @@ function MainPage() {
   return (
     <div className="w-full min-h-screen flex flex-col">
       {/* Header Section */}
+      <ChatBot/>
       <div
         className="fixed top-0 left-0 w-full z-[100] bg-black
                 py-4 sm:py-2 px-2 flex justify-between items-center"

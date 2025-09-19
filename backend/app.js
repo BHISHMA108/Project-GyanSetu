@@ -7,6 +7,8 @@ const songRoutes = require("./routes/songRoutes.js");
 const storyRoutes = require("./routes/storyRoute.js");
 const bodyParser = require("body-parser");
 const path = require("path");
+const chatbotRoutes = require("./routes/chatRoutes.js");
+
 
 dotenv.config();
 const app = express();
@@ -21,11 +23,42 @@ app.use(
   })
 );
 
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+app.post("/chatbot", async (req, res) => {
+  const userMessage = req.body.input;
+
+  try {
+    const response = await axios.post(
+      "https://api.gemini.com/v1/chat", // check actual Gemini endpoint
+      {
+        model: "gemini-1",
+        messages: [{ role: "user", content: userMessage }],
+      },
+      {
+        headers: {
+          "Authorization": `Bearer ${GEMINI_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const botReply = response.data.choices[0].message.content;
+    res.status(200).json({ reply: botReply });
+  } catch (error) {
+    console.error("Error from Gemini API:", error.response?.data || error.message);
+    res.status(500).json({ error: "Failed to get response from Gemini API" });
+  }
+});
+
 // Routes
 app.use("/api", chalisaRoutes);
 app.use("/api", podcastRoutes);
 app.use("/api", songRoutes);
 app.use("/api", storyRoutes);
+app.use("/api", chatbotRoutes); // optional
+
 
 // Serve static files (if any)
 app.use("/podcasts", express.static(path.join(__dirname, "podcasts")));
