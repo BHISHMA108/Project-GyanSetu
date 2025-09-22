@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const chatInputFunction = async (req, res) => {
+exports.chatInputFunction = async (req, res) => {
   try {
     const userMessage = req.body.input;
 
@@ -54,4 +54,4 @@ const chatInputFunction = async (req, res) => {
   }
 };
 
-module.exports = chatInputFunction;
+// module.exports = chatInputFunction;

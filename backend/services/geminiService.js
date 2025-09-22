@@ -8,7 +8,7 @@ const axios = require("axios");
 
 const getMeaning = async (verse) => {
     try {
-        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" }); // ✅ Updated model name
+        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" }); // ✅ Updated model name
         const prompt = `Give me the meaning of this Hanuman Chalisa verse in simple English or hindi if asked in which language: "${verse}"
         `;
 
