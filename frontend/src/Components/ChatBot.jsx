@@ -1,8 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeadset } from "@fortawesome/free-solid-svg-icons";
+
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import botimage from "/bot-logo.png";
 export default function ChatBot() {
   const [modal, setModal] = useState(false);
   const [form, setForm] = useState({ input: "" });
@@ -54,11 +52,6 @@ export default function ChatBot() {
       >
         <div className="text-[38px]">
           🤖
-        {/* <img
-          src={botimage}
-          alt="Chatbot"
-          className="h-full w-full object-cover rounded-full"
-        /> */}
         </div>
       </button>
 
