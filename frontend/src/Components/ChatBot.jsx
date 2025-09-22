@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadset } from "@fortawesome/free-solid-svg-icons";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
-
+import botimage from "/bot-logo.png";
 export default function ChatBot() {
   const [modal, setModal] = useState(false);
   const [form, setForm] = useState({ input: "" });
@@ -50,11 +50,18 @@ export default function ChatBot() {
       {/* Floating Button */}
       <button
         onClick={handleClick}
-        className="fixed bottom-6 right-6 flex items-center justify-center
-                   text-white rounded-full h-[62px] w-[62px] z-[99] 
-                   bg-orange-500 shadow-lg hover:scale-110 hover:bg-orange-600 transition-transform duration-300"
+        className="fixed bottom-6 bg-[#ef233c] right-6 h-[62px] w-[62px] z-[99] rounded-full shadow-lg hover:scale-110 transition-transform duration-300 overflow-hidden p-0"
       >
+        <div className="text-[38px]">
+          🤖
+        {/* <img
+          src={botimage}
+          alt="Chatbot"
+          className="h-full w-full object-cover rounded-full"
+        /> */}
+        </div>
       </button>
+
 
       {/* Modal */}
       {modal && (
@@ -83,11 +90,10 @@ export default function ChatBot() {
             {messages.map((msg, idx) => (
               <div
                 key={idx}
-                className={`p-2 rounded-lg max-w-[80%] whitespace-pre-line ${
-                  msg.role === "user"
+                className={`p-2 rounded-lg max-w-[80%] whitespace-pre-line ${msg.role === "user"
                     ? "bg-orange-500 self-end text-white"
                     : "bg-gray-700 self-start text-white"
-                }`}
+                  }`}
               >
                 {msg.content}
               </div>
@@ -110,7 +116,7 @@ export default function ChatBot() {
             />
             <button
               type="submit"
-              className="px-4 py-2 h-full bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+              className="px-4 py-2 h-full flex justify-center items-center align-center bg-[#ef233c] text-white rounded-lg hover:bg-orange-600 transition-colors"
             >
               Send
             </button>
