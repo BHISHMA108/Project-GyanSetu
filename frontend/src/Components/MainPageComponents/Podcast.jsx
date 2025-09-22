@@ -49,7 +49,7 @@ const Podcast = () => {
 
     try {
       const response = await axios.post(
-        " https://project-gyan-backend.vercel.app/api/generate-podcast",
+        " http://localhost:5000/api/generate-podcast",
         { topic }
       );
       setScript(response.data.script);
