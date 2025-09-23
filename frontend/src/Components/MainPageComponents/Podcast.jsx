@@ -49,7 +49,7 @@ const Podcast = () => {
 
     try {
       const response = await axios.post(
-        " http://localhost:5000/api/generate-podcast",
+        "https://gyansetu-backend-latest.onrender.com/api/generate-podcast",
         { topic }
       );
       setScript(response.data.script);

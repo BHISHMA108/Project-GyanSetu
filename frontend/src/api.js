@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/analyze"; // Backend URL
+// const API_URL = "https://gyansetu-backend-latest.onrender.com/api/analyze"; // Backend URL
 
 export const getMeaning = async (verse) => {
   try {
     const response = await axios.post(
-      API_URL,
+      "https://gyansetu-backend-latest.onrender.com/api/analyze",
       { verse },
       { headers: { "Content-Type": "application/json" } }
     );

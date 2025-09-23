@@ -18,10 +18,13 @@ const ChatModal = ({ god, onClose }) => {
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const response = await axios.post(" http://localhost:5000/api/chat", {
-        message: input,
-        god: god?.name || "Unknown",
-      });
+      const response = await axios.post(
+        "https://gyansetu-backend-latest.onrender.com/api/chat",
+        {
+          message: input,
+          god: god?.name || "Unknown",
+        }
+      );
 
       const botMessage = { text: response.data.response, sender: "bot" };
       setMessages((prev) => [...prev, botMessage]);

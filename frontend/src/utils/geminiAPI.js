@@ -7,17 +7,20 @@ export const generateStoryWithGemini = async (
   religion = ""
 ) => {
   try {
-    const response = await fetch(" http://localhost:5000/api/generate-story", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: finalPrompt,
-        language,
-        religion,
-      }),
-    });
+    const response = await fetch(
+      "https://gyansetu-backend-latest.onrender.com/api/generate-story",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: finalPrompt,
+          language,
+          religion,
+        }),
+      }
+    );
 
     const data = await response.json();
     return data;

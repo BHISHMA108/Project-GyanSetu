@@ -8,7 +8,7 @@ const SpotifyClone = () => {
 
   useEffect(() => {
     axios
-      .get(" http://localhost:5000/api/songs")
+      .get("https://gyansetu-backend-latest.onrender.com/api/songs")
       .then((response) => setSongs(response.data))
       .catch((error) => console.error("Error fetching songs:", error));
   }, []);
