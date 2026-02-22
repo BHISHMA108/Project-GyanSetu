@@ -26,13 +26,13 @@ const News = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black-950 text-white py-16 px-8">
+    <div className=" flex justify-center items-center min-h-screen bg-black-950 text-white py-16 px-8">
       <h1 className="text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
         Hindu Spiritual News
       </h1>
 
       {loading ? (
-        <p className="text-lg text-center text-gray-400 animate-pulse">Loading News...</p>
+        <p className=" flex justify-center items-center text-lg text-center text-gray-400 animate-pulse">Loading News...</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {news.map((article, index) => (

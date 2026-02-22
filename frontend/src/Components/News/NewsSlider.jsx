@@ -224,12 +224,12 @@ const NewsSlider = () => {
   };
 
   return (
-    <div className="news-slider">
+    <div className="">
       <div className="religion-selector">
         <select 
           value={currentReligion} 
           onChange={(e) => handleReligionChange(e.target.value)}
-          className="religion-dropdown"
+          className="hover:bg-black hover:text-white religion-dropdown"
         >
           <option value="hinduism">Hinduism</option>
           <option value="buddhism">Buddhism</option>

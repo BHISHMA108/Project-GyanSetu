@@ -49,10 +49,10 @@ const AboutUs = () => {
         transition={{ duration: 1, staggerChildren: 0.2 }}
       >
         {[  
-          { src: "src/assets/bhagwatgita.jpeg", alt: "Bhagwat Geeta" },
-          { src: "src/assets/kuran.jpeg", alt: "Quran" },
-          { src: "src/assets/sikh.jpeg", alt: "Shabad Guru" },
-          { src: "src/assets/bible.jpeg", alt: "Bible" }
+          { src: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771770383/bhagwatgita_f4kczo.jpg", alt: "Bhagwat Geeta" },
+          { src: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771770377/kuran_ne1uis.jpg", alt: "Quran" },
+          { src: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771770373/sikh_y79yjg.jpg", alt: "Shabad Guru" },
+          { src: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771770373/bible_mbh9gh.jpg", alt: "Bible" }
         ].map((image, index) => (
           <motion.img
             key={index}

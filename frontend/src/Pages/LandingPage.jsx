@@ -21,7 +21,7 @@ const LandingPage = () => {
   return (
     <>
       <Navbar toggleCalendar={toggleCalendar} />
-      <CalendarDrawer open={openCalendar} onClose={toggleCalendar} />
+      <CalendarDrawer classname="relative z-[101]" open={openCalendar} onClose={toggleCalendar} />
       <OpeningPage />
       {isMd ? <><PageTwo /><PageTwobottom/></>: <AltPageTwo />}
     </>

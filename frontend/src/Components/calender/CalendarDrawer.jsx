@@ -5,6 +5,7 @@ import Calendar from './Calendar';
 function CalendarDrawer({ open, onClose }) {
   return (
 <Drawer
+className='relative z-50'
   anchor="left"
   open={open}
   onClose={onClose}

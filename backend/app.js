@@ -16,7 +16,7 @@ const app = express();
 // ✅ CORS middleware
 app.use(
   cors({
-    origin: "https://project-gyan-setu-three.vercel.app", // your frontend domain
+    origin: ["https://project-gyan-setu-three.vercel.app", "http://localhost:5173"], // your frontend domains
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,

@@ -7,7 +7,7 @@ const FloatingNav = ({ toggleCalendar }) => {
 
   return (
     <div
-className=" fixed hidden lg:block text-2xl md:text-[15px] top-4 left-1/4 right-1/4 z-[9999] 
+className=" fixed hidden lg:block text-2xl md:text-[15px] top-4 left-1/4 right-1/4 z-[999] 
            bg-blue-300 shadow-md rounded-[51px] 
            items-center justify-center px-6 py-3"
 

@@ -26,7 +26,7 @@ const AnimatedDropdown = () => {
   };
 
   return (
-    <div className="relative w-full max-w-[190px] sm:w-[250px] ml-2 sm:ml-6">
+    <div className="relative w-full max-w-[220px] sm:w-[250px] ml-2 sm:ml-6">
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}
@@ -35,9 +35,7 @@ const AnimatedDropdown = () => {
                    bg-gradient-to-r from-purple-500 to-indigo-600 
                    text-white rounded-lg shadow-md"
       >
-        <span className="truncate text-left">
-          Explore other religions?
-        </span>
+        <span className="truncate text-left">Explore other religions?</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
@@ -61,7 +59,7 @@ const AnimatedDropdown = () => {
             {items.map((item, index) => (
               <motion.li
                 key={index}
-                whileHover={{ backgroundColor: "#f3f4f6", scale: 1.02 }}
+                whileHover={{ backgroundColor: "white", color:"black", scale: 1.02 }}
                 className="px-3 sm:px-4 py-2 text-sm sm:text-base cursor-pointer 
                            dark:text-white text-black"
                 onClick={() => handleSelect(item)}
