@@ -70,35 +70,50 @@ module.exports = async (req, res) => {
       return res.status(500).json({ error: "GEMINI_API_KEY not set" });
     }
 
-    const systemPrompt = `You are GyanSetu’s AI Cultural Guide...`;
+    const systemPrompt = `You are GyanSetu’s AI Cultural Guide... 
+    Formatting Rules (IMPORTANT):
+- Return plain text only.
+- Do NOT use bullet points.
+- Do NOT use markdown.
+- Do NOT use bold text or symbols like *, -, or #.
+- Do NOT use section headings.
+- Keep spacing clean with one line break between each dialogue.`;
 
     const payload = {
       contents: [
-        { parts: [{ text: systemPrompt + "\nUser question: " + userMessage }] }
-      ]
+        { parts: [{ text: systemPrompt + "\nUser question: " + userMessage }] },
+      ],
     };
 
     const response = await axios.post(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
       payload,
       {
         headers: {
           "Content-Type": "application/json",
-          "X-goog-api-key": GEMINI_API_KEY
-        }
-      }
+          "X-goog-api-key": GEMINI_API_KEY,
+        },
+      },
     );
 
     let botReply = "No reply from AI";
     const candidates = response.data?.candidates;
     if (candidates?.length) {
-      botReply = candidates[0].content?.parts?.map(p => p.text).join("") || botReply;
+      botReply =
+        candidates[0].content?.parts?.map((p) => p.text).join("") || botReply;
     }
 
     res.status(200).json({ reply: botReply });
-
   } catch (err) {
-    console.error("Error in chatbot backend:", err.response?.data || err.message);
-    res.status(500).json({ error: "Failed to get response from Gemini API" });
+    console.error(
+      "Error in chatbot backend:",
+      err.response?.data || err.message,
+    );
+    res
+      .status(500)
+      .json({
+        error: "Failed to get response from Gemini API",
+        data: err.response?.data || null,
+      });
   }
 };

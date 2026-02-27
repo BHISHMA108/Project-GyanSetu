@@ -2,15 +2,22 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 
 const SpotifyClone = () => {
+  const [loading, setloading] = useState(true);
   const [songs, setSongs] = useState([]);
   const [playingSong, setPlayingSong] = useState(null);
   const audioRef = useRef(null);
 
   useEffect(() => {
     axios
-      .get(" https://project-gyan-backend.vercel.app/api/songs")
-      .then((response) => setSongs(response.data))
-      .catch((error) => console.error("Error fetching songs:", error));
+      .get("https://gyansetu-backend-latest.onrender.com/api/songs")
+      .then((response) => {
+        setSongs(response.data);
+        setloading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching songs:", error);
+        setloading(true);
+      });
   }, []);
 
   const playSong = (song) => {
@@ -35,33 +42,40 @@ const SpotifyClone = () => {
       {/* Header */}
       <header className="p-4 md:p-6">
         <h1 className="text-2xl md:text-3xl font-bold text-center">
-          🎵 My Music Player
+          Music Player
         </h1>
       </header>
 
       {/* Song List */}
-      <main className="flex-1 overflow-y-auto px-4 md:px-6">
-        <ul className="space-y-3 md:space-y-4">
-          {songs.map((song) => (
-            <li
-              key={song.id}
-              className={`flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 p-3 rounded-lg cursor-pointer transition duration-300 hover:bg-gray-700 ${
-                playingSong?.id === song.id ? "bg-gray-800" : ""
-              }`}
-              onClick={() => playSong(song)}
-            >
-              <div className="flex-1 text-center sm:text-left">
-                <p className="font-semibold text-sm md:text-base">
-                  {song.name}
-                </p>
-              </div>
-              <button className="w-full sm:w-auto px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg text-sm md:text-base">
-                {playingSong?.id === song.id ? "Pause" : "Play"}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </main>
+      {/* ✅ Loading UI */}
+      {loading ? (
+        <div className="flex flex-1 items-center justify-center">
+          <p className="text-lg animate-pulse">Loading songs...</p>
+        </div>
+      ) : (
+        <main className="flex-1 overflow-y-auto px-4 md:px-6">
+          <ul className="space-y-3 md:space-y-4">
+            {songs.map((song) => (
+              <li
+                key={song.id}
+                className={`flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 p-3 rounded-lg cursor-pointer transition duration-300 hover:bg-gray-700 ${
+                  playingSong?.id === song.id ? "bg-gray-800" : ""
+                }`}
+                onClick={() => playSong(song)}
+              >
+                <div className="flex-1 text-center sm:text-left">
+                  <p className="font-semibold text-sm md:text-base">
+                    {song.name}
+                  </p>
+                </div>
+                <button className="w-full sm:w-auto px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg text-sm md:text-base">
+                  {playingSong?.id === song.id ? "Pause" : "Play"}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </main>
+      )}
 
       {/* Now Playing (Sticky Bottom) */}
       {playingSong && (

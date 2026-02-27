@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 export default function ChatBot() {
@@ -6,6 +5,7 @@ export default function ChatBot() {
   const [form, setForm] = useState({ input: "" });
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000"; // Backend URL
 
   // Auto scroll
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function ChatBot() {
     setMessages((prev) => [...prev, { role: "user", content: form.input }]);
 
     try {
-      const res = await axios.post("https://project-gyan-backend.vercel.app/api/chatbot", form);
+      const res = await axios.post(`${API_URL}/api/chatbot`, form);
 
       if (res.status === 200) {
         let botReply = res.data.reply || "No reply from AI";
@@ -50,17 +50,16 @@ export default function ChatBot() {
         onClick={handleClick}
         className="fixed bottom-6 bg-[#ef233c] right-6 h-[62px] w-[62px] z-[99] rounded-full shadow-lg hover:scale-110 transition-transform duration-300 overflow-hidden p-0"
       >
-        <div className="text-[38px]">
-          🤖
-        </div>
+        <div className="text-[38px]">🤖</div>
       </button>
-
 
       {/* Modal */}
       {modal && (
-        <div className="fixed bottom-24 right-6 z-[101] w-[380px] h-[480px] 
+        <div
+          className="fixed bottom-24 right-6 z-[101] w-[380px] h-[480px] 
                         bg-gray-900 border border-gray-700 rounded-xl shadow-xl 
-                        flex flex-col">
+                        flex flex-col"
+        >
           {/* Header */}
           <div className="flex justify-between items-center px-4 py-3 bg-gray-800 rounded-t-xl border-b border-gray-700">
             <h2 className="text-lg font-semibold text-white">Chatbot</h2>
@@ -75,25 +74,32 @@ export default function ChatBot() {
           </div>
 
           {/* Body */}
-          <div className="flex-1 text-sm p-4 overflow-y-auto text-white flex flex-col gap-2">
+          <div className="flex-1 text-sm p-4 overflow-y-auto text-white flex flex-col gap-3">
             {messages.length === 0 && (
-              <p className="text-sm text-gray-400 mb-3">👋 Hi! Ask me anything.</p>
+              <p className="text-sm text-gray-400 mb-3">
+                👋 Hi! Ask me anything.
+              </p>
             )}
 
             {messages.map((msg, idx) => (
               <div
                 key={idx}
-                className={`p-2 rounded-lg max-w-[80%] whitespace-pre-line ${msg.role === "user"
+                className={`px-3 py-2 rounded-xl max-w-[80%] leading-relaxed whitespace-pre-wrap shadow-sm ${
+                  msg.role === "user"
                     ? "bg-orange-500 self-end text-white"
-                    : "bg-gray-700 self-start text-white"
-                  }`}
+                    : "bg-gray-700 self-start text-white shadow-md"
+                }`}
               >
-                {msg.content}
+                {msg.content.split("\n").map((line, i) => (
+                  <p key={i} className="mb-2 last:mb-0">
+                    {line}
+                  </p>
+                ))}
               </div>
             ))}
+
             <div ref={messagesEndRef} />
           </div>
-
           {/* Form */}
           <form
             onSubmit={handleSubmit}

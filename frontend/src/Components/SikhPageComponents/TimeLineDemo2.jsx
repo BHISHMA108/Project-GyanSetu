@@ -9,52 +9,52 @@ const SikhGurusTimeline = () => {
   {
     title: "Guru Nanak Dev Ji (1469-1539)",
     description: "Founder of Sikhism, emphasized the oneness of God, equality, and the importance of truthful living.",
-    image: "/SikhTimeline/SikhTimeline/9.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775328/9_gmqvtr.jpg",
   },
   {
     title: "Guru Angad Dev Ji (1504-1552)",
     description: "Developed Gurmukhi script, emphasized physical fitness, and continued Guru Nanak's teachings.",
-    image: "/SikhTimeline/SikhTimeline/1.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775314/1_mft2vv.jpg",
   },
   {
     title: "Guru Amar Das Ji (1479-1574)",
     description: "Started the tradition of Langar (community kitchen) and promoted social equality.",
-    image: "/SikhTimeline/SikhTimeline/2.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775315/2_qo1ami.jpg",
   },
   {
     title: "Guru Ram Das Ji (1534-1581)",
     description: "Founded the city of Amritsar and composed many hymns in Guru Granth Sahib.",
-    image: "/SikhTimeline/SikhTimeline/3.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775315/3_ap0j3w.jpg",
   },
   {
     title: "Guru Arjan Dev Ji (1563-1606)",
     description: "Compiled the Adi Granth, built Harmandir Sahib (Golden Temple), and was martyred for his faith.",
-    image: "/SikhTimeline/SikhTimeline/4.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775315/4_egcsf2.jpg",
   },
   {
     title: "Guru Hargobind Ji (1595-1644)",
     description: "Introduced the concept of Miri and Piri (spiritual and temporal authority), established Akal Takht.",
-    image: "/SikhTimeline/SikhTimeline/5.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775315/5_ypblmo.jpg",
   },
   {
     title: "Guru Har Rai Ji (1630-1661)",
     description: "Promoted environmental consciousness, maintained Sikh military strength, and continued Guru Nanak's teachings.",
-    image: "/SikhTimeline/SikhTimeline/6.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775315/6_utwdmj.jpg",
   },
   {
     title: "Guru Har Krishan Ji (1656-1664)",
     description: "Known as the child Guru, served humanity by curing the sick during a smallpox epidemic.",
-    image: "/SikhTimeline/SikhTimeline/7.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775316/7_iwxe3d.jpg",
   },
   {
     title: "Guru Tegh Bahadur Ji (1621-1675)",
     description: "Sacrificed his life to protect religious freedom, martyred by the Mughal emperor Aurangzeb.",
-    image: "/SikhTimeline/SikhTimeline/8.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775320/8_atezu7.jpg",
   },
   {
     title: "Guru Gobind Singh Ji (1666-1708)",
     description: "Founded the Khalsa, gave Sikhs their identity, and declared Guru Granth Sahib as the eternal Guru.",
-    image: "/SikhTimeline/SikhTimeline/10.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775328/10_nasj4b.jpg",
   },
 ];
 
@@ -79,7 +79,7 @@ const SikhGurusTimeline = () => {
               >
        
                 <img
-                  src={`../public/Sikh Timeline/Sikh Timeline/${guru.image}`}
+                  src={`${guru.image}`}
                   alt={guru.title}
                   className="translate-x-[5rem] rounded-lg object-cover h-44 md:h-64 lg:h-80 w-auto shadow-lg"
                 />

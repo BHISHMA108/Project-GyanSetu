@@ -16,14 +16,30 @@ const app = express();
 // ✅ CORS middleware
 app.use(
   cors({
-    origin: ["https://project-gyan-setu-three.vercel.app", "http://localhost:5173"], // your frontend domains
+    origin: [
+      "https://project-gyan-setu-three.vercel.app",
+      "http://localhost:5173",
+    ], // your frontend domains
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
-  })
+  }),
 );
+// Detect if running in Docker (by checking env variable, optional)
+const isDocker = process.env.DOCKER === "true";
 
-// ✅ Handle all preflight requests
+// CORS middleware
+// app.use(
+//   cors({
+//     origin: isDocker ? "*" : "https://project-gyan-setu-three.vercel.app",
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//   })
+// );
+app.use(cors({ origin: "*" }));
+
+// Preflight
 app.options("*", cors());
 
 // Middleware
@@ -40,5 +56,12 @@ app.use("/api", chatbotRoutes);
 // Static files
 app.use("/podcasts", express.static(path.join(__dirname, "podcasts")));
 
-// ❌ Don't app.listen() on Vercel
+// Start server
+if (require.main === module) {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`💗 Server running on port ${PORT}`);
+  });
+}
+
 module.exports = app;

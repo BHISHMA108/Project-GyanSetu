@@ -9,52 +9,52 @@ const ChristianTimeline = () => {
   {
     title: "Birth of Jesus Christ (c. 4-6 BC)",
     description: "Jesus Christ, believed to be the Son of God, was born in Bethlehem to the Virgin Mary, marking the beginning of Christianity.",
-    image: "/ChristianTimeline/ChristianTimeline/1.webp",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775022/1_tlgk4y.webp",
   },
   {
     title: "Baptism of Jesus (c. 27-29 AD)",
     description: "Jesus was baptized by John the Baptist in the River Jordan, beginning his public ministry.",
-    image: "/ChristianTimeline/ChristianTimeline/2.webp",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775017/2_jklg7y.webp",
   },
   {
     title: "The Crucifixion (c. 30-33 AD)",
     description: "Jesus was crucified in Jerusalem under Roman rule, an event central to Christian faith as a sacrifice for humanity's sins.",
-    image: "/ChristianTimeline/ChristianTimeline/3.webp",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775015/3_ycul5f.webp",
   },
   {
     title: "The Resurrection (c. 30-33 AD)",
     description: "Three days after his crucifixion, Jesus rose from the dead, affirming his divinity and fulfilling biblical prophecies.",
-    image: "/ChristianTimeline/ChristianTimeline/4.webp",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775013/4_cg2ukz.webp",
   },
   {
     title: "Ascension of Jesus (c. 30-33 AD)",
     description: "Jesus ascended to heaven in the presence of his disciples, promising to return at the end of time.",
-    image: "/ChristianTimeline/ChristianTimeline/5.webp",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775013/5_oi8wdh.webp",
   },
   {
     title: "Pentecost and the Early Church (c. 30-33 AD)",
     description: "The Holy Spirit descended upon the apostles, empowering them to spread Jesus' teachings, leading to the formation of the Christian Church.",
-    image: "/ChristianTimeline/ChristianTimeline/6.webp",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775018/6_tufkdx.webp",
   },
   {
     title: "Council of Nicaea (325 AD)",
     description: "Christian leaders gathered to define core doctrines, resulting in the Nicene Creed, which outlined the divinity of Christ.",
-    image: "/ChristianTimeline/ChristianTimeline/7.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775017/7_rb5qph.png",
   },
   {
     title: "Great Schism (1054 AD)",
     description: "The split between the Roman Catholic Church and the Eastern Orthodox Church due to theological and political differences.",
-    image: "/ChristianTimeline/ChristianTimeline/8.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775018/8_jlicas.png",
   },
   {
     title: "Protestant Reformation (1517 AD)",
     description: "Led by Martin Luther, the Reformation challenged Catholic practices, leading to the formation of Protestant denominations.",
-    image: "/ChristianTimeline/ChristianTimeline/9.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775024/9_iwy55x.png",
   },
   {
     title: "Modern Christianity (Present)",
     description: "Christianity remains one of the largest religions in the world, evolving with new movements and interpretations of the faith.",
-    image: "/ChristianTimeline/ChristianTimeline/10.jpg",
+    image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771775019/10_rymqsp.png",
   },
 ];
 
@@ -77,7 +77,7 @@ const ChristianTimeline = () => {
                 className="flex justify-center"
               >
                 <img
-                  src={`../public/Christian Timeline/Christian Timeline/${event.image}`}
+                  src={`${event.image}`}
                   alt={event.title}
                   className="rounded-lg object-cover h-44 md:h-64 lg:h-80 w-auto shadow-lg"
                 />

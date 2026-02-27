@@ -4,6 +4,8 @@ import { FaMicrophone, FaSpinner } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000"; 
+
 
 const Podcast = () => {
   const [topic, setTopic] = useState("");
@@ -49,7 +51,7 @@ const Podcast = () => {
 
     try {
       const response = await axios.post(
-        " https://project-gyan-backend.vercel.app/api/generate-podcast",
+        `${API_URL}/api/generate-podcast`,
         { topic }
       );
       setScript(response.data.script);
@@ -125,11 +127,9 @@ const Podcast = () => {
             <h3 className="text-lg sm:text-xl font-semibold mb-3">
               📜 Podcast Script:
             </h3>
-            <div className="p-4 bg-red-500 text-white rounded-lg relative leading-relaxed">
-              {script}
-              {/* little speech bubble pointer */}
-              <div className="absolute left-6 -bottom-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-t-red-500 border-l-transparent border-r-transparent"></div>
-            </div>
+            <div className="p-4 bg-red-500 text-white rounded-lg relative leading-relaxed whitespace-pre-line">
+  {script}
+</div>
           </motion.div>
         )}
       </div>

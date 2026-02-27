@@ -49,7 +49,7 @@ The vision of GyanSetu is to:
 
 ### 💬 AI Chatbot
 
-* Neutral, unbiased chatbot built using **WordPress integration**.
+* Neutral, unbiased chatbot built using **Gemini Open API**.
 * Answers faith-related questions as a universal guide.
 
 ### 📊 Dashboard Features
@@ -80,7 +80,8 @@ The vision of GyanSetu is to:
 * **Database:** MongoDB for storing users, events, and content.
 * **Authentication:** Firebase Auth.
 * **AI Models:** OpenAI API, Google Gemini API.
-* **Deployment:** Hosted on Vercel.
+* **Tools:** Docker, Vite, Postman.
+* **Deployment:** Hosted on Render via DockerHub.
 
 ---
 
@@ -108,7 +109,7 @@ The vision of GyanSetu is to:
 
 ## 🔗 Links
 
-* **Live Demo:** [Vercel Hosted Link](https://project-gyan-setu-three.vercel.app/)
+* **Live Demo:** [Vercel Hosted Link](https://gyansetu-frontend-latest.onrender.com/)
 * **GitHub Repo:** [Repository Link](https://github.com/BHISHMA108/Project-GyanSetu/)
 
 ---

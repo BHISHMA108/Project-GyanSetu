@@ -8,7 +8,7 @@ export const generateStoryWithGemini = async (
 ) => {
   try {
     const response = await fetch(
-      " https://project-gyan-backend.vercel.app/api/generate-story",
+      "https://gyansetu-backend-latest.onrender.com/api/generate-story",
       {
         method: "POST",
         headers: {

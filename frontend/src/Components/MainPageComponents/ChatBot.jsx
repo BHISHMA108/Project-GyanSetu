@@ -18,10 +18,13 @@ const ChatModal = ({ god, onClose }) => {
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const response = await axios.post(" https://project-gyan-backend.vercel.app/api/chat", {
-        message: input,
-        god: god?.name || "Unknown",
-      });
+      const response = await axios.post(
+        "https://gyansetu-backend-latest.onrender.com/api/chat",
+        {
+          message: input,
+          god: god?.name || "Unknown",
+        }
+      );
 
       const botMessage = { text: response.data.response, sender: "bot" };
       setMessages((prev) => [...prev, botMessage]);
@@ -39,7 +42,6 @@ const ChatModal = ({ god, onClose }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 p-4">
       <div className="w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] bg-white rounded-xl shadow-lg flex flex-col max-h-[90vh]">
-        
         {/* Header */}
         <div className="bg-blue-600 text-white p-4 flex justify-between items-center rounded-t-xl">
           <h2 className="text-base sm:text-lg font-semibold">
