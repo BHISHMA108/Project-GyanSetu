@@ -1,61 +1,178 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import profImg from "../Components/Assets/conquor.jpg";
+import axios from "axios";
+import { onAuthStateChanged } from "firebase/auth";
+import {auth} from "../Firebase/Firebase.js";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Profile() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [formData, setFormData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [uid , setUid] = useState(null);
+  
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    try {
+      if (currentUser) {
+        const id = currentUser.uid;
+        setUid(id);
+
+        const res = await axios.get(
+          `${API_URL}/api/user/${id}`
+        );
+
+        setUser(res.data.data);
+        setFormData(res.data.data);
+      }
+    } catch (error) {
+      console.error("Error fetching user:", error);
+    } finally {
+      setLoading(false);
+    }
+  });
+
+  return () => unsubscribe();
+}, []);
+
+  // 🔹 Handle Input Change
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // 🔹 Update User
+  const handleUpdate = async () => {
+    try {
+      const res = await axios.put(
+        `${API_URL}/api/updateuser/${uid}`,
+        formData
+      );
+
+      setUser(res.data.data);
+      setEditMode(false);
+      alert("Profile Updated Successfully");
+    } catch (error) {
+      console.error("Error updating profile:", error);
+    }
+  };
+
+  if (loading) {
+    return <div className="h-screen w-full flex justify-center items-center text-white text-center mt-10">Loading...</div>;
+  }
+
+  if (!user) {
+    return <div className="text-red-500 text-center mt-10">User Not Found</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 py-8 flex flex-col items-center">
-      {/* Go Back Button */}
-      <div className="w-full max-w-2xl mb-6 flex items-center gap-2 cursor-pointer"
-           onClick={() => navigate("/main")}>
-        <ArrowBackIcon className="text-blue-400" fontSize="medium" />
+      
+      {/* Go Back */}
+      <div
+        className="w-full max-w-2xl mb-6 flex items-center gap-2 cursor-pointer"
+        onClick={() => navigate("/main")}
+      >
+        <ArrowBackIcon className="text-blue-400" />
         <p className="text-blue-400 hover:underline">Go back</p>
       </div>
 
       {/* Profile Card */}
-      <div className="w-full max-w-2xl bg-gray-800 rounded-2xl shadow-xl p-6 sm:p-10 relative overflow-hidden">
-        {/* Glow Effect */}
-        <div className="absolute inset-0 bg-cyan-400 opacity-10 blur-3xl pointer-events-none"></div>
+      <div className=" max-w-3xl bg-gray-800 rounded-2xl shadow-xl p-6">
 
-        {/* Header Section */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
-          {/* Profile Image */}
-          <img
-            src={profImg}
-            alt="Profile"
-            className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-full  shadow-lg"
-          />
+        {/* Profile Image */}
+        <div className="w-full flex justify-center items-center h-64 rounded-2xl overflow-hidden mb-6">
+  <img
+    src={user.profilePicture || "/user.jpg"}
+    alt="Profile"
+    className="w-full h-full object-fill "
+  />
+</div>
 
-          {/* User Info */}
-          <div className="flex flex-col items-center sm:items-start">
+        {/* Name */}
+        <div className="mb-4">
+          {editMode ? (
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Holy Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-2 rounded bg-gray-700"
+            />
+          ) : (
             <h1 className="text-2xl font-bold text-cyan-400">
-              Bhishma_108
+              {user.name}
             </h1>
-            <p className="text-gray-300 mt-1">Hindu</p>
-          </div>
+          )}
         </div>
 
-        {/* Bio Section */}
-        <div className="mt-8 relative z-10">
-          <h2 className="text-xl font-semibold text-cyan-300">Bio</h2>
-          <p className="text-gray-300 mt-2 leading-relaxed">
-            I am a software engineer with 5 years of experience in the field.
-            I am passionate about technology and always eager to learn new
-            things.
-          </p>
+        {/* Religion */}
+        <div className="mb-4">
+          {editMode ? (
+            <input
+              type="text"
+              placeholder="Religion"
+              name="religion"
+              value={formData.religion || ""}
+              onChange={handleChange}
+              className="w-full p-2 rounded bg-gray-700"
+            />
+          ) : (
+            <p className="text-gray-300">
+              {user.religion || "Not specified"}
+            </p>
+          )}
+        </div>
+
+        {/* Bio */}
+        <div className="mb-4">
+          <h2 className="text-lg font-semibold text-cyan-300">Bio</h2>
+          {editMode ? (
+            <textarea
+              name="bio"
+              placeholder="Enter Bio"
+              value={formData.bio || ""}
+              onChange={handleChange}
+              className="w-full p-2 rounded bg-gray-700 mt-2"
+            />
+          ) : (
+            <p className="text-gray-300 mt-2">
+              {user.bio || "No bio available"}
+            </p>
+          )}
         </div>
 
         {/* Buttons */}
-        <div className="mt-8 flex justify-center sm:justify-start gap-4 relative z-10">
-          <button className="px-6 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white shadow-md transition-all">
-            Edit Profile
-          </button>
-          <button className="px-6 py-2 rounded-xl border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 shadow-md transition-all">
-            Message
-          </button>
+        <div className="mt-6 flex gap-4">
+          {editMode ? (
+            <>
+              <button
+                onClick={handleUpdate}
+                className="px-6 py-2 rounded bg-green-500 hover:bg-green-600"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => setEditMode(false)}
+                className="px-6 py-2 rounded bg-red-500 hover:bg-red-600"
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => setEditMode(true)}
+              className="px-6 py-2 rounded bg-cyan-500 hover:bg-cyan-600"
+            >
+              Edit Profile
+            </button>
+          )}
         </div>
       </div>
     </div>

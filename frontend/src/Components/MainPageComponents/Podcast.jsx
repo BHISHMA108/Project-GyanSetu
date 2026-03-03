@@ -4,7 +4,8 @@ import { FaMicrophone, FaSpinner } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000"; 
+const API_URL = import.meta.env.VITE_API_URL; 
+// const API_URL = "https://gyansetu-backend-latest.onrender.com"; // Backend URL
 
 
 const Podcast = () => {
