@@ -1,5 +1,6 @@
 // geminiAPI.js
 // src/utils/geminiAPI.js
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const generateStoryWithGemini = async (
   finalPrompt,
@@ -8,7 +9,7 @@ export const generateStoryWithGemini = async (
 ) => {
   try {
     const response = await fetch(
-      "https://gyansetu-backend-latest.onrender.com/api/generate-story",
+      `${API_URL}/api/generate-story`,
       {
         method: "POST",
         headers: {

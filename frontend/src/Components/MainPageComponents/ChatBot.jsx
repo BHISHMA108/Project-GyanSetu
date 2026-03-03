@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ChatModal = ({ god, onClose }) => {
   const [messages, setMessages] = useState([]);
@@ -19,7 +20,7 @@ const ChatModal = ({ god, onClose }) => {
 
     try {
       const response = await axios.post(
-        "https://gyansetu-backend-latest.onrender.com/api/chat",
+        `${API_URL}/api/chat`,
         {
           message: input,
           god: god?.name || "Unknown",

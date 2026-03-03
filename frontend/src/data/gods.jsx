@@ -45,7 +45,7 @@ const gods = [
     },
     { 
         name: "Lord Ganesha", 
-        image: "../../public/Gods Images/lord ganesha.jpeg", 
+        image: "https://res.cloudinary.com/dst3yuj1w/image/upload/v1771776184/lord_ganesha_wi8qhd.jpg", 
         description: "Elephant-headed god of beginnings.", 
         color: "#8E24AA" // Joyful purple
     }

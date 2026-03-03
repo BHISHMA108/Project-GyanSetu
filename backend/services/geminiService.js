@@ -64,7 +64,7 @@ const getChantAnalysis = async (userSpeech) => {
 // talk to god make chatbot
 const getAIResponse = async (message, god) => {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" }); // ✅ Use correct model name
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" }); // ✅ Use correct model name
     const prompt = `A user is talking to ${god}. Their question: "${message}". Respond as if you are ${god}, using a spiritual and knowledgeable tone.`;
 
     const result = await model.generateContent({

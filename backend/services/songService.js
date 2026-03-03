@@ -3,6 +3,7 @@ const path = require("path");
 
 const SONGS_FOLDER = path.join(__dirname, "../songs");
 
+
 // Fetch list of songs
 const fetchSongs = () => {
   const files = fs.readdirSync(SONGS_FOLDER);
