@@ -5,7 +5,9 @@ export default function ChatBot() {
   const [form, setForm] = useState({ input: "" });
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
-  const API_URL = import.meta.env.VITE_API_URL; // const API_URL = "https://gyansetu-backend-latest.onrender.com"
+  const API_URL =
+    import.meta.env.VITE_API_URL ||
+    "https://gyansetu-backend-latest.onrender.com"; // const API_URL = "https://gyansetu-backend-latest.onrender.com"
 
   // Auto scroll
   useEffect(() => {

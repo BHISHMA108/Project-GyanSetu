@@ -4,9 +4,10 @@ import { FaMicrophone, FaSpinner } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-const API_URL = import.meta.env.VITE_API_URL; 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "https://gyansetu-backend-latest.onrender.com";
 // const API_URL = "https://gyansetu-backend-latest.onrender.com"; // Backend URL
-
 
 const Podcast = () => {
   const [topic, setTopic] = useState("");
@@ -51,10 +52,9 @@ const Podcast = () => {
     setScript("");
 
     try {
-      const response = await axios.post(
-        `${API_URL}/api/generate-podcast`,
-        { topic }
-      );
+      const response = await axios.post(`${API_URL}/api/generate-podcast`, {
+        topic,
+      });
       setScript(response.data.script);
     } catch (error) {
       console.error("Error generating podcast:", error);
@@ -129,8 +129,8 @@ const Podcast = () => {
               📜 Podcast Script:
             </h3>
             <div className="p-4 bg-red-500 text-white rounded-lg relative leading-relaxed whitespace-pre-line">
-  {script}
-</div>
+              {script}
+            </div>
           </motion.div>
         )}
       </div>

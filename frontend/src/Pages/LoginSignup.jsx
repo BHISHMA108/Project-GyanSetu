@@ -12,7 +12,9 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import LoginVideo from "../Components/LoginVideo"; // Import video component
 import Aurora from "../Components/Aurora/Aurora.jsx";
-const API_URL = import.meta.env.VITE_API_URL 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "https://gyansetu-backend-latest.onrender.com";
 // const API_URL = "https://gyansetu-backend-latest.onrender.com"; // Backend URL
 const LoginSignup = () => {
   const navigate = useNavigate();

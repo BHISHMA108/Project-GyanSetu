@@ -19,30 +19,33 @@ const app = express();
    ✅ CORS CONFIG (ONLY ONE)
 ============================== */
 
-const allowedOrigins = [
-  "https://gyansetu-frontend-latest.onrender.com",
-  "https://project-gyan-setu-three.vercel.app",
-  "http://localhost:5173",
-];
+// const allowedOrigins = [
+//   "https://gyansetu-frontend-latest.onrender.com",
+//   "https://project-gyan-setu-three.vercel.app",
+//   "http://localhost:5173",
+//   "http://localhost:3000",
+// ];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like Postman)
-      if (!origin) return callback(null, true);
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin) return callback(null, true);
+//     if (allowedOrigins.includes(origin)) return callback(null, true);
+//     return callback(null, false);
+//   },
+//   credentials: true,
+// };
 
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  }),
-);
+// app.use(cors(corsOptions));
+// app.options("*", cors(corsOptions));
 
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
+
+app.options("*", (req, res) => {
+  res.sendStatus(200);
+});
 /* ==============================
    ✅ MIDDLEWARE
 ============================== */

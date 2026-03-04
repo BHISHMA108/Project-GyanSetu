@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "https://gyansetu-backend-latest.onrender.com";
 
 const ChatModal = ({ god, onClose }) => {
   const [messages, setMessages] = useState([]);
@@ -19,13 +21,10 @@ const ChatModal = ({ god, onClose }) => {
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const response = await axios.post(
-        `${API_URL}/api/chat`,
-        {
-          message: input,
-          god: god?.name || "Unknown",
-        }
-      );
+      const response = await axios.post(`${API_URL}/api/chat`, {
+        message: input,
+        god: god?.name || "Unknown",
+      });
 
       const botMessage = { text: response.data.response, sender: "bot" };
       setMessages((prev) => [...prev, botMessage]);

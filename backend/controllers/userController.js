@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const userModel = require('../model/userProfile');
-const localStorage = require('localStorage');
 
 
 const fetchUser = async (req , res)=>{
