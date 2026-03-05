@@ -44,7 +44,7 @@ const LoginVideo = ({ setShowVideo }) => {
           preload="auto"
           className="w-screen h-screen object-cover"
         >
-          <source src="/Latest.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dst3yuj1w/video/upload/v1772706111/Latest_crfpjo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

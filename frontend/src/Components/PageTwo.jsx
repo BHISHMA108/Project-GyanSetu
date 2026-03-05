@@ -49,45 +49,45 @@ function MovingCanvas({ children, direction = "left", speedFactor = 900 }) {
 
 // Define the models
 function Om() {
-  const { scene } = useGLTF("/om_symbol.glb");
+  const { scene } = useGLTF("https://res.cloudinary.com/dst3yuj1w/image/upload/v1772705689/om_symbol_kbx3cs.glb");
   return <primitive object={scene} scale={1.5} />;
 }
 
 function Khanda() {
-  const { scene } = useGLTF("/khanda.glb");
+  const { scene } = useGLTF("https://res.cloudinary.com/dst3yuj1w/image/upload/v1772705631/khanda_xxdv7y.glb");
   return <primitive object={scene} scale={3.5} position={[0, -0.4, 0]} />;
 }
 
 function Kuran() {
-  const { scene } = useGLTF("/quran.glb");
+  const { scene } = useGLTF("https://res.cloudinary.com/dst3yuj1w/image/upload/v1772705668/quran_kfwonc.glb");
   return <primitive object={scene} scale={3} />;
 }
 
 function Cross() {
-  const { scene } = useGLTF("/cross.glb");
+  const { scene } = useGLTF("https://res.cloudinary.com/dst3yuj1w/image/upload/v1772705636/cross_q3rkto.glb");
   return <primitive object={scene} scale={2.5} />;
 }
 
 // Preload models for better performance
-useGLTF.preload("/om_symbol.glb");
-useGLTF.preload("/khanda.glb");
-useGLTF.preload("/quran.glb");
-useGLTF.preload("/cross.glb");
+useGLTF.preload("https://res.cloudinary.com/dst3yuj1w/image/upload/v1772705689/om_symbol_kbx3cs.glb");
+useGLTF.preload("https://res.cloudinary.com/dst3yuj1w/image/upload/v1772705631/khanda_xxdv7y.glb");
+useGLTF.preload("https://res.cloudinary.com/dst3yuj1w/image/upload/v1772705668/quran_kfwonc.glb");
+useGLTF.preload("https://res.cloudinary.com/dst3yuj1w/image/upload/v1772705636/cross_q3rkto.glb");
 
 export default function PageTwo() {
   return (
     <div data-scroll data-scroll-translate="0 -100" data-scroll-speed="0.9" className="Page2 ">
       
       {/* Background Video */}
-      <video autoPlay loop muted playsInline className="background-video">
+      {/* <video autoPlay loop muted playsInline className="background-video">
         <source src="./Assets/background_black.mp4" type="video/mp4" />
-      </video>
+      </video> */}
 
       <div className="CanvasContainer">
 
-      <video autoPlay loop muted playsInline className="background-video">
+      {/* <video autoPlay loop muted playsInline className="background-video">
         <source src="./Assets/background_black.mp4" type="video/mp4" />
-      </video>
+      </video> */}
 
         
         {/* Om Symbol (Moves Left to Right) */}
